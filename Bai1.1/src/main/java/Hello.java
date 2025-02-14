@@ -11,7 +11,7 @@ import java.io.PrintWriter;
 /**
  * Servlet implementation class Hello
  */
-@WebServlet("/Hello")
+@WebServlet("/subpage")
 public class Hello extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -27,8 +27,11 @@ public class Hello extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		PrintWriter wt=response.getWriter();
-		wt.println("Hello Servlet");
+		String value1=request.getParameter("param1");
+		String value2String=request.getParameter("param2");
+		PrintWriter traVePrintWriter=response.getWriter();
+		traVePrintWriter.append(value1);
+		traVePrintWriter.append(value2String);
 	}
 
 	/**
