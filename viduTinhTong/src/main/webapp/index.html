@@ -8,7 +8,13 @@
 	<form action="sum.jsp" method="get">
 		a= <input type="number" name="a">
 		b= <input type="number" name="b">
-		<input type="submit" value="Tinh Tổng">
+		<select id="operator" name="operator" required>
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
+		<input type="submit" value="Tính Toán">
 	</form>
 </body>
 </html>

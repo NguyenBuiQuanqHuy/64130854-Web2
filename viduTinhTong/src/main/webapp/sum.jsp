@@ -12,13 +12,25 @@
 	int valueA=Integer.parseInt(strA);
 	String strB=request.getParameter("b");
 	int valueB=Integer.parseInt(strB);
+	String operation=request.getParameter("operator");
 	 
-	out.print("Tong Cua ");
-	out.print(valueA);
-	out.print(" và ");
-	out.print(valueB);
-	out.print(" là ");
-	out.print(valueA+valueB);
+	switch(operation){
+	case "+": out.append(valueA +"+"+ valueB +" = "+ (valueA + valueB));
+	break;
+	
+	case "-": out.append(valueA +"-"+  valueB +" = "+ (valueA - valueB));
+	break;
+	
+	case "*": out.append(valueA +"*"+  valueB +" = "+ (valueA * valueB));
+	break;
+	
+	case "/": 
+		if(valueB!=0){
+		out.append(valueA +"/"+  valueB +" = "+(valueA/valueB));}
+		else out.print("Lỗi");
+	break;
+	
+	}
 	%>
 </body>
 </html>
