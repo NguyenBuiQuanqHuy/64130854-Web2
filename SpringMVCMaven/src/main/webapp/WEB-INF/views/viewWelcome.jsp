@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	Chào mừng MVC
+	<h1>Chào mừng MVC</h1>
 </body>
 </html>
