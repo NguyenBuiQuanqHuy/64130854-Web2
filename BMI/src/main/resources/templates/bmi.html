@@ -16,7 +16,7 @@
             height: 100vh;
         }
         .container {
-            width: 300px;
+            width: 320px;
             background: white;
             padding: 20px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -41,6 +41,14 @@
             border: 1px solid #ccc;
             border-radius: 5px;
             text-align: center;
+        }
+        .radio-group {
+            display: flex;
+            justify-content: center;
+            margin: 10px 0;
+        }
+        .radio-group label {
+            margin: 0 10px;
         }
         button {
             background-color: #28a745;
@@ -70,6 +78,15 @@
             <input type="text" id="weight" name="weight" required>
             <label for="height">Chiều cao (m):</label>
             <input type="text" id="height" name="height" required>
+            
+            <label>Chọn tiêu chuẩn BMI:</label>
+            <div class="radio-group">
+                <input type="radio" id="international" name="standard" value="international" checked>
+                <label for="international">Quốc tế</label>
+                <input type="radio" id="asia" name="standard" value="asia">
+                <label for="asia">Châu Á</label>
+            </div>
+            
             <button type="submit">Tính BMI</button>
         </form>
         <p class="message" th:if="${message}" th:text="${message}"></p>
