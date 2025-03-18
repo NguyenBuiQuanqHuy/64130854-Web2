@@ -2,6 +2,7 @@ package huy.ntu.edu.BMI;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -9,12 +10,13 @@ import jakarta.servlet.http.HttpServletRequest;
 
 @Controller
 public class BMIController {
-    @RequestMapping(value = "bmi", method = RequestMethod.GET)
-    public String showForm() {
-        return "bmi"; 
-    }
+	@GetMapping("/bmi")
+	public String getMethod(ModelMap model) {
+		model.addAttribute("message", "");
+		return "bmi";
+	}
     
-    @RequestMapping(value = "bmi", method = RequestMethod.POST)
+    @RequestMapping(value = "/bmi", method = RequestMethod.POST)
     public String calculateBMI(ModelMap model, HttpServletRequest request) {
         try {
             double weight = Double.parseDouble(request.getParameter("weight"));

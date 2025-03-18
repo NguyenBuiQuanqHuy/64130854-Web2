@@ -48,10 +48,8 @@
         button:hover {
             background-color: #0056b3;
         }
-        .message {
-            color: red;
-            margin-top: 10px;
-        }
+        .success { color: green; }
+        .error { color: red; }
     </style>
 </head>
 <body>
@@ -66,7 +64,7 @@
             
             <button type="submit">Đăng nhập</button>
         </form>
-        <p class="message" th:text="${message}"></p>
+        <p th:if="${message}" th:text="${message}" th:classappend="${message == 'Đăng nhập thành công' ? 'success' : 'error'}"></p>
     </div>
 </body>
 </html>
