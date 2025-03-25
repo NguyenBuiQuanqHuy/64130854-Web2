@@ -5,19 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thông tin cá nhân</title>
     <link rel="stylesheet" th:href="@{/css/about.css}">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
-    <div class="profile-container">
-        <img th:src="${anhDaiDien}" alt="Ảnh đại diện" class="profile-img">
-        <h2 th:text="${hoTen}"></h2>
-        <p class="info"><strong>Ngày sinh:</strong> <span th:text="${ngaySinh}"></span></p>
-        <p class="info"><strong>Trường:</strong> <span th:text="${truong}"></span></p>
-        <p class="info"><strong>MSSV:</strong> <span th:text="${mssv}"></span></p>
-        <p class="info"><strong>Địa chỉ:</strong> <span th:text="${diaChi}"></span></p>
-        <p class="info"><strong>Số điện thoại:</strong> <span th:text="${soDienThoai}"></span></p>
-        <div class="contact">
-            <button type="button" class="btn-back" onclick="window.location.href='/'">Quay lại</button>
-        </div>
+ 	<div th:replace="frontEnd/frontEndView::header"></div>
+ 	<div class="container">
+        <main class="content">
+             <div class="profile-container">
+		        <img th:src="${anhDaiDien}" alt="Ảnh đại diện" class="profile-img">
+		        <h2 th:text="${hoTen}"></h2>
+		        <p class="info"><strong>Ngày sinh:</strong> <span th:text="${ngaySinh}"></span></p>
+		        <p class="info"><strong>Trường:</strong> <span th:text="${truong}"></span></p>
+		        <p class="info"><strong>MSSV:</strong> <span th:text="${mssv}"></span></p>
+		        <p class="info"><strong>Địa chỉ:</strong> <span th:text="${diaChi}"></span></p>
+		        <p class="info"><strong>Số điện thoại:</strong> <span th:text="${soDienThoai}"></span></p>
+    		</div>
+        </main>
+        <div th:replace="frontEnd/frontEndView::sidebar"></div>
     </div>
+   
+     <div th:replace="frontEnd/frontEndView::footer"></div>
 </body>
 </html>

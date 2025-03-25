@@ -33,6 +33,10 @@ public class HomeController {
 		dsSinhViens.add(new SinhVien(64130854,"Nguyễn Bùi Quang Huy",9.0f));
 		dsSinhViens.add(new SinhVien(64132656,"Đồng Nguyên Quang",8.5f));
 		dsSinhViens.add(new SinhVien(64132108,"Miểu Văn Trung",8.75f));
+		dsSinhViens.add(new SinhVien(64131697,"Võ Xuân Trường",7.5f));
+		dsSinhViens.add(new SinhVien(64135920,"Đỗ Xuân Trường",5.6f));
+		dsSinhViens.add(new SinhVien(62135693,"Đào Xuân Quốc",9.5f));
+		dsSinhViens.add(new SinhVien(63196304,"Hoàng Duy An",8.75f));
 	
 		model.addAttribute("students",dsSinhViens);
 		return "frontEnd/list";
