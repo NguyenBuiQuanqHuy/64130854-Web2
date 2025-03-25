@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông tin cá nhân</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+    <div class="profile-container">
+        <img th:src="${anhDaiDien}" alt="Ảnh đại diện" class="profile-img">
+        <h2 th:text="${hoTen}"></h2>
+        <p class="info">Ngày sinh: <span th:text="${ngaySinh}"></span></p>
+        <p class="info">Trường: <span th:text="${truong}"></span></p>
+        <p class="info">MSSV: <span th:text="${mssv}"></span></p>
+        <p class="info">Địa chỉ: <span th:text="${diaChi}"></span></p>
+        <p class="info">Số điện thoại: <span th:text="${soDienThoai}"></span></p>
+        <div class="contact">
+            <button type="button" class="btn-back" onclick="window.location.href='Login.html'">Quay lại</button>
+        </div>
+    </div>
+</body>
+</html>
