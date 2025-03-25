@@ -41,4 +41,9 @@ public class HomeController {
 		model.addAttribute("students",dsSinhViens);
 		return "frontEnd/list";
 	}
+	
+	@GetMapping("/addnew")
+	public String addNew() {
+		return  "frontEnd/addnew";
+	}
 }
