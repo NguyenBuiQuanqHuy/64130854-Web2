@@ -1,14 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title>Home Page</title>
+    <meta charset="UTF-8">
+    <title>Fragments</title>
 </head>
 <body>
-	<div th:fragment="header">
-		<nav class="navbar navbar-expand-lg navbar-dark bg-black">
-			
-		</nav>
-	</div>
+    <!-- Header Fragment -->
+    <div th:fragment="header" class="header">
+        <header>
+            <div><img th:src="@{/images/ntu.png}" alt="NTU Logo"></div>
+        </header>
+        <nav class="navbar">
+            <a th:href="@{/}" id='active'>Home</a>
+            <a th:href="@{/about}">About</a>
+            <a th:href="@{/list}">Student List</a>
+        </nav>
+    </div>
+
+    <!-- Sidebar Fragment -->
+    <div th:fragment="sidebar" class="sidebar">
+        <aside>
+            <img th:src="@{/images/avatar.jpg}" alt="Avatar">
+            <p>Thông tin cá nhân</p>
+        </aside>
+    </div>
+
+    <!-- Footer Fragment -->
+    <div th:fragment="footer" class="footer">
+        <footer>
+            <b>&copy; Nguyễn Bùi Quang Huy</b>
+        </footer>
+    </div>
 </body>
 </html>
