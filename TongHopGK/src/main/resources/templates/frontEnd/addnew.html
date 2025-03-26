@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thêm Sinh Viên</title>
     <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <link rel="stylesheet" th:href="@{/css/addnew.css}">
 </head>
 <body>
     <div th:replace="frontEnd/frontEndView::header"></div>
@@ -12,15 +13,15 @@
     <div class="container">
         <main class="content">
             <h2>Thêm Sinh Viên</h2>
-            <form th:action="@{/addnew}" method="post" th:object="${sinhVien}">
-                <label>Mã số sinh viên:</label>
-                <input type="number" th:field="*{mssv}" required>
+            <form th:action="@{/addnew}" method="post">
+                <label for="id">Mã số sinh viên:</label>
+                <input type="number" id="id" name="id" required>
 
-                <label>Họ và Tên:</label>
-                <input type="text" th:field="*{hoTen}" required>
+                <label for="name">Họ và Tên:</label>
+                <input type="text" id="name" name="name" required>
 
-                <label>Điểm:</label>
-                <input type="number" step="0.01" th:field="*{diem}" required>
+                <label for="score">Điểm:</label>
+                <input type="number" step="0.01" id="score" name="score" required>
 
                 <button type="submit">Thêm</button>
             </form>

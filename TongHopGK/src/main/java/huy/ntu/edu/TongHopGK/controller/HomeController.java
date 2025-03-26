@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import huy.ntu.edu.TongHopGK.model.SinhVien;
 
@@ -27,23 +29,34 @@ public class HomeController {
 	    return "frontEnd/about";
 	}
 	
-	@GetMapping("/list")
-	public String getStudent(ModelMap model) {
-		ArrayList<SinhVien> dsSinhViens=new ArrayList<SinhVien>();
-		dsSinhViens.add(new SinhVien(64130854,"Nguyễn Bùi Quang Huy",9.0f));
-		dsSinhViens.add(new SinhVien(64132656,"Đồng Nguyên Quang",8.5f));
-		dsSinhViens.add(new SinhVien(64132108,"Miểu Văn Trung",8.75f));
-		dsSinhViens.add(new SinhVien(64131697,"Võ Xuân Trường",7.5f));
-		dsSinhViens.add(new SinhVien(64135920,"Đỗ Xuân Trường",5.6f));
-		dsSinhViens.add(new SinhVien(62135693,"Đào Xuân Quốc",9.5f));
-		dsSinhViens.add(new SinhVien(63196304,"Hoàng Duy An",8.75f));
+	 ArrayList<SinhVien> dsSinhViens=new ArrayList<SinhVien>();
+	 public HomeController() {
+		 dsSinhViens.add(new SinhVien(64130854, "Nguyễn Bùi Quang Huy", 9.0f));
+	        dsSinhViens.add(new SinhVien(64132656, "Đồng Nguyên Quang", 8.5f));
+	        dsSinhViens.add(new SinhVien(64132108, "Miểu Văn Trung", 8.75f));
+	        dsSinhViens.add(new SinhVien(64131697, "Võ Xuân Trường", 7.5f));
+	        dsSinhViens.add(new SinhVien(64135920, "Đỗ Xuân Trường", 5.6f));
+	        dsSinhViens.add(new SinhVien(62135693, "Đào Xuân Quốc", 9.5f));
+	        dsSinhViens.add(new SinhVien(63196304, "Hoàng Duy An", 8.75f));
+	 }
 	
-		model.addAttribute("students",dsSinhViens);
-		return "frontEnd/list";
-	}
 	
-	@GetMapping("/addnew")
-	public String addNew() {
-		return  "frontEnd/addnew";
-	}
+	 @GetMapping("/list")
+	    public String getStudent(ModelMap model) {
+	        model.addAttribute("students", dsSinhViens);
+	        return "frontEnd/list";
+	    }
+
+	    @GetMapping("/addnew")
+	    public String addNew(ModelMap model) {
+	        return "frontEnd/addnew";
+	    }
+
+	    @PostMapping("/addnew")
+	    public String saveStudent(@RequestParam("id") int id,
+	                              @RequestParam("name") String name,
+	                              @RequestParam("score") float score) {
+	        dsSinhViens.add(new SinhVien(id, name, score));
+	        return "redirect:/list";
+	    }
 }
