@@ -1,10 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Fragment</title>
 </head>
 <body>
+	 <div th:fragment="header" class="header">
+        <header>
+            <p>Nguyễn Bùi Quang Huy</p>
+        </header>
+    </div>
 
+    <div th:fragment="sidebar" class="sidebar">
+        <aside>
+            <img th:src="@{/image/logo_CNTT.jpg}" alt="Avatar">
+             <nav class="navbar">
+            <a th:href="@{/}" id='active'>Home</a>
+            <a th:href="@{/about}">About</a>
+            <a th:href="@{/about}">About</a>
+            <a th:href="@{/list}">Student List</a>
+            <a th:href="@{/addnew}">Add New</a>
+        </nav>
+        </aside>
+    </div>
+
+    <div th:fragment="footer" class="footer">
+        <footer>
+            <b>&copy; Nguyễn Bùi Quang Huy</b>
+        </footer>
+    </div>
 </body>
 </html>
