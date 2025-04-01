@@ -27,18 +27,18 @@ public class HomeController {
 	        list.add(new Page("5", "Blog Page", "blog, page", "Latest blog posts and articles.", "1"));
 	}
 	
-	 @GetMapping("/list")
+	 @GetMapping("/page/all")
 	    public String getPage(ModelMap model) {
 	        model.addAttribute("pagelist", list);
 	        return "pagelist";
 	    }
 
-	    @GetMapping("/addPage")
+	    @GetMapping("/page/new")
 	    public String addNew(ModelMap model) {
 	        return "addPage";
 	    }
 	 
-	 @PostMapping("/addPage")
+	 @PostMapping("/page/new")
 	    public String addPage(
 	        @RequestParam String id,
 	        @RequestParam String title,
@@ -52,13 +52,13 @@ public class HomeController {
 	        return "redirect:/list";
 	    }
 
-	 @GetMapping("/deletePage/{id}")
-	 public String deletePage(@PathVariable String id, ModelMap model) {
-	     list.removeIf(page -> page.getId().equals(id));
-	     return "redirect:/list";
-	 }
+	 @GetMapping("/page/delete/{id}")
+	    public String deletePage(@PathVariable String id, ModelMap model) {
+	        list.removeIf(page -> page.getId().equals(id));
+	        return "redirect:/page/all";
+	    }
 
-	 @GetMapping("/viewPage/{id}")
+	    @GetMapping("/page/view/{id}")
 	    public String viewPage(@PathVariable String id, ModelMap model) {
 	        for (Page page : list) {
 	            if (page.getId().equals(id)) {
@@ -66,6 +66,6 @@ public class HomeController {
 	                return "viewpage";
 	            }
 	        }
-	        return "redirect:/list";
+	        return "redirect:/page/all";
 	    }
 }
