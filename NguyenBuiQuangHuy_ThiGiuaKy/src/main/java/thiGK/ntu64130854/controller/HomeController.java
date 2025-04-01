@@ -6,6 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import thiGK.ntu64130854.model.Page;
 
@@ -31,23 +33,25 @@ public class HomeController {
 	        return "pagelist";
 	    }
 	 
-	 @GetMapping("/viewPage/{id}")
-	    public String viewPage(@PathVariable String id, ModelMap model) {
-	        Page pageToView = list.stream()
-	                .filter(page -> page.getId().equals(id))
-	                .findFirst()
-	                .orElse(null);
-	        
-	        if (pageToView != null) {
-	            model.addAttribute("page", pageToView);
-	            return "frontEnd/view"; 
-	        }
+	 @PostMapping("/addPage")
+	    public String addPage(
+	        @RequestParam String id,
+	        @RequestParam String title,
+	        @RequestParam String keywords,
+	        @RequestParam String content,
+	        @RequestParam String status,
+	        ModelMap model
+	    ) {
+	        list.add(new Page(id, title, keywords, content, status));
+	        model.addAttribute("pagelist", list);
 	        return "redirect:/list";
 	    }
 
 	    @GetMapping("/deletePage/{id}")
-	    public String deletePage(@PathVariable String id) {
+	    public String deletePage(@PathVariable String id, ModelMap model) {
 	        list.removeIf(page -> page.getId().equals(id));
+	        model.addAttribute("pagelist", list);
 	        return "redirect:/list";
 	    }
+
 }
