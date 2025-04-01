@@ -9,4 +9,9 @@ public class HomeController {
 	public String trangchu() {
 		return "index";
 	}
+	
+	@GetMapping("/pageList")
+	public String pagelist() {
+		return "index";
+	}
 }
