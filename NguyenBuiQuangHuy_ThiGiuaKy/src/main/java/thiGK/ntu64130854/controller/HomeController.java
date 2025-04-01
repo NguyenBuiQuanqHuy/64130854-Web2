@@ -32,6 +32,11 @@ public class HomeController {
 	        model.addAttribute("pagelist", list);
 	        return "pagelist";
 	    }
+
+	    @GetMapping("/addPage")
+	    public String addNew(ModelMap model) {
+	        return "addPage";
+	    }
 	 
 	 @PostMapping("/addPage")
 	    public String addPage(
@@ -47,11 +52,20 @@ public class HomeController {
 	        return "redirect:/list";
 	    }
 
-	    @GetMapping("/deletePage/{id}")
-	    public String deletePage(@PathVariable String id, ModelMap model) {
-	        list.removeIf(page -> page.getId().equals(id));
-	        model.addAttribute("pagelist", list);
+	 @GetMapping("/deletePage/{id}")
+	 public String deletePage(@PathVariable String id, ModelMap model) {
+	     list.removeIf(page -> page.getId().equals(id));
+	     return "redirect:/list";
+	 }
+
+	 @GetMapping("/viewPage/{id}")
+	    public String viewPage(@PathVariable String id, ModelMap model) {
+	        for (Page page : list) {
+	            if (page.getId().equals(id)) {
+	                model.addAttribute("page", page);
+	                return "viewpage";
+	            }
+	        }
 	        return "redirect:/list";
 	    }
-
 }
