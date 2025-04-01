@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh Sách Trang</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+    <div th:replace="layout::header"></div>
+    <div class="container">
+        <main class="content">
+            <h1>Danh sách các trang</h1>
+            <ul>
+                <li th:each="page : ${pagelist}">
+                    <h2 th:text="${page.pageName}"></h2>
+                    <p><strong>Keyword:</strong> <span th:text="${page.keyword}"></span></p>
+                    <p><strong>Content:</strong> <span th:text="${page.content}"></span></p>
+                    <p><strong>Parent Page ID:</strong> <span th:text="${page.parentPageID}"></span></p>
+                    <a th:href="@{/viewPage/{id}(id=${page.id})}">Xem</a> | 
+                    <a th:href="@{/deletePage/{id}(id=${page.id})}" onclick="return confirm('Bạn có chắc chắn muốn xóa?')">Xóa</a>
+                </li>
+            </ul>
+        </main>
+        <div th:replace="layout::sidebar"></div>
+    </div>
+    <div th:replace="layout::footer"></div>
+</body>
+</html>
