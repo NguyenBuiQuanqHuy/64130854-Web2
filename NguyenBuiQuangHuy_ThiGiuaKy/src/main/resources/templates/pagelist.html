@@ -16,8 +16,6 @@
                     <tr>
                         <th>ID</th>
                         <th>Tên Trang</th>
-                        <th>Từ Khóa</th>
-                        <th>Nội Dung</th>
                         <th>Trang Cha</th>
                         <th>Hành Động</th>
                     </tr>
@@ -26,11 +24,11 @@
                     <tr th:each="page : ${pagelist}">
                         <td th:text="${page.id}"></td>
                         <td th:text="${page.pageName}"></td>
-                        <td th:text="${page.keyword}"></td>
-                        <td th:text="${page.content}"></td>
+ 
                         <td th:text="${page.parentPageID}"></td>
                         <td>
                             <a th:href="@{/page/view/{id}(id=${page.id})}">Xem</a> |
+                           	<a href="#">Sửa</a> | 
 <a th:href="@{/page/delete/{id}(id=${page.id})}" onclick="return confirm('Bạn có chắc chắn muốn xóa?')">Xóa</a>
 
                         </td>

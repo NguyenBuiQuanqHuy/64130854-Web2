@@ -41,15 +41,15 @@ public class HomeController {
 	 @PostMapping("/page/new")
 	    public String addPage(
 	        @RequestParam String id,
-	        @RequestParam String title,
-	        @RequestParam String keywords,
+	        @RequestParam String pageName,
+	        @RequestParam String keyword,
 	        @RequestParam String content,
-	        @RequestParam String status,
+	        @RequestParam String parentPageID,
 	        ModelMap model
 	    ) {
-	        list.add(new Page(id, title, keywords, content, status));
+	        list.add(new Page(id, pageName, keyword, content, parentPageID));
 	        model.addAttribute("pagelist", list);
-	        return "redirect:/list";
+	        return "redirect:/page/all";
 	    }
 
 	 @GetMapping("/page/delete/{id}")
