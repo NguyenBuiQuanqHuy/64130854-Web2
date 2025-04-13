@@ -28,7 +28,7 @@ public class PostController {
 	
 	 @GetMapping("/post/all")
 	    public String getPage(ModelMap model) {
-	        model.addAttribute("pagelist", list);
+	        model.addAttribute("postlist", list);
 	        return "postlist";
 	    }
 
@@ -46,7 +46,7 @@ public class PostController {
 	        ModelMap model
 	    ) {
 	        list.add(new Post(id, title, content, catetoryID));
-	        model.addAttribute("pagelist", list);
+	        model.addAttribute("postlist", list);
 	        return "redirect:/post/all";
 	    }
 
@@ -60,7 +60,7 @@ public class PostController {
 	    public String viewPage(@PathVariable String id, ModelMap model) {
 	        for (Post post : list) {
 	            if (post.getId().equals(id)) {
-	                model.addAttribute("page", post);
+	                model.addAttribute("post", post);
 	                return "viewpost";
 	            }
 	        }

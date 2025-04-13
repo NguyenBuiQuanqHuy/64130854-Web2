@@ -22,9 +22,9 @@
                 <tbody>
                     <tr th:each="post : ${postlist}">
                         <td th:text="${post.id}"></td>
-                        <td th:text="${post.pageName}"></td>
+                        <td th:text="${post.title}"></td>
  
-                        <td th:text="${post.parentPageID}"></td>
+                       
                         <td>
                             <a th:href="@{/post/view/{id}(id=${post.id})}">Xem</a> |
                            	<a href="#">Sửa</a> | 
