@@ -5,7 +5,12 @@ import java.util.ArrayList;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import jakarta.servlet.http.HttpServletRequest;
 import thiGK.ntu64130854.model.Page;
 
 @Controller
@@ -28,11 +33,25 @@ public class PageController {
 	 @GetMapping("/page/all")
 	    public String getPage(ModelMap model) {
 	        model.addAttribute("pagelist", list);
-	        return "listpage";
+	        return "page/listpage";
 	    }
 	 
 	 @GetMapping("/page/new")
 	    public String addNew(ModelMap model) {
-	        return "newpage";
+	        return "page/newpage";
+	    }
+	 
+	@PostMapping("/page/new")
+	public String addPage(
+	        @RequestParam("id") String id,
+	        @RequestParam("pageName") String pageName,
+	        @RequestParam("keyword") String keyword,
+	        @RequestParam("content") String content,
+	        @RequestParam("parentPageID") String parentPageID,
+	        ModelMap model
+	    ) {
+	        list.add(new Page(id, pageName, keyword, content, parentPageID));
+	        model.addAttribute("pagelist", list);
+	        return "redirect:/page/all";
 	    }
 }
