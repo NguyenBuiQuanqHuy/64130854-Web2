@@ -26,7 +26,7 @@ public class PostController {
 	 @GetMapping("/post/all")
 	    public String getPage(ModelMap model) {
 	        model.addAttribute("postlist", list);
-	        return "post/postlist";
+	        return "post/listpost";
 	    }
 
 	    @GetMapping("/post/new")
@@ -36,10 +36,10 @@ public class PostController {
 	 
 	 @PostMapping("/post/new")
 	    public String addPage(
-	        @RequestParam String id,
-	        @RequestParam String title,
-	        @RequestParam String content,
-	        @RequestParam String catetoryID,
+	        @RequestParam("id") String id,
+	        @RequestParam("title") String title,
+	        @RequestParam("content") String content,
+	        @RequestParam("catetoryID") String catetoryID,
 	        ModelMap model
 	    ) {
 	        list.add(new Post(id, title, content, catetoryID));
