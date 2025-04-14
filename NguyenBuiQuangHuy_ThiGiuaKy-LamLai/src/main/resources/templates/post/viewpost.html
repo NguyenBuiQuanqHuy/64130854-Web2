@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Chi tiết trang</title>
+    <link rel="stylesheet" th:href="@{/css/list.css}">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+    <div th:replace="layout::header"></div>
+    <div class="container">
+        <main class="content">
+            <h2>Chi tiết trang</h2>
+            <table>
+                <tr>
+                    <th>ID:</th>
+                    <td th:text="${post.id}"></td>
+                </tr>
+                <tr>
+                    <th>Tiêu Đề:</th>
+                    <td th:text="${post.title}"></td>
+                </tr>
+       
+                <tr>
+                    <th>Nội Dung:</th>
+                    <td th:text="${post.content}"></td>
+                </tr>
+                <tr>
+                    <th>Trang Cha:</th>
+                    <td th:text="${post.catetoryID}"></td>
+                </tr>
+            </table>
+            <br>
+            <a href="/post/all">Quay lại danh sách</a>
+        </main>
+        <div th:replace="layout::sidebar"></div>
+    </div>
+    <div th:replace="layout::footer"></div>
+</body>
+</html>

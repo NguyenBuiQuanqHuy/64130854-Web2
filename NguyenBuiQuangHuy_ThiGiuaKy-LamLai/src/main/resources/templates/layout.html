@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Fragment</title>
+</head>
+<body>
+	 <div th:fragment="header" class="header">
+        <header>
+            <p>Nguyễn Bùi Quang Huy</p>
+        </header>
+    </div>
+
+    <div th:fragment="sidebar" class="sidebar">
+        <aside>
+            <img th:src="@{/image/logo_CNTT.png}" alt="Logo">
+             <nav class="navbar">
+            <a th:href="@{/}" id='active'>Home</a>
+            <a th:href="@{/page/all}">Page-List</a>
+            <a th:href="@{/page/new}">Page-Addnew</a>
+           <a th:href="@{/post/all}">Page-List</a>
+            <a th:href="@{/post/new}">Page-Addnew</a>
+        </nav>
+        </aside>
+    </div>
+
+    <div th:fragment="footer" class="footer">
+        <footer>
+            <b>&copy; Nguyễn Bùi Quang Huy</b>
+        </footer>
+    </div>
+</body>
+</html>

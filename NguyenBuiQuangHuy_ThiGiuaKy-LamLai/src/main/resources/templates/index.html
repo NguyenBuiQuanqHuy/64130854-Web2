@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Trang chủ</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+    <div th:replace="layout::header"></div>
+    <div class="container">
+        <main class="content">
+            <h1>Welcome to Nha Trang University</h1>
+            <p>Where Knowledge Meets the Ocean Breeze</p>
+        </main>
+        <div th:replace="layout::sidebar"></div>
+    </div>
+    <div th:replace="layout::footer"></div>
+</body>
+</html>
