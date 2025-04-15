@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import thiGK.ntu64130854.model.Page;
 import thiGK.ntu64130854.model.Post;
 
 @Controller
@@ -46,5 +47,17 @@ public class PostController {
 	        model.addAttribute("postlist", list);
 	        return "redirect:/post/all";
 	    }
+	 
+	// Xem theo ID
+		@GetMapping("/post/view/id")
+		public String view(@RequestParam("id") String id, ModelMap model) {
+			for (Post post:list) {
+				if(post.getId().equals(id)) {
+					model.addAttribute("post",post);
+					return "post/viewpost";
+				}
+			}
+			return "redirect:/post/all";
+		}
 	
 }

@@ -27,7 +27,7 @@
  
                         <td th:text="${page.parentPageID}"></td>
                         <td>
-                            <a th:href="@{/page/view/{id}(id=${page.id})}">Xem</a> |
+                            <a th:href="@{/page/view/id(id=${page.id})}">Xem</a> |
                            	<a href="#">Sửa</a> | 
 <a th:href="@{/page/delete/{id}(id=${page.id})}" onclick="return confirm('Bạn có chắc chắn muốn xóa?')">Xóa</a>
 
