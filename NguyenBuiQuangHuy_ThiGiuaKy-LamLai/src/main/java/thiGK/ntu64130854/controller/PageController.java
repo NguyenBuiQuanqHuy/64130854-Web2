@@ -32,6 +32,7 @@ public class PageController {
 	        return "page/listpage";
 	    }
 	 
+	 //Danh sách
 	 @GetMapping("/page/new")
 	    public String addNew(ModelMap model) {
 	        return "page/newpage";
@@ -52,5 +53,15 @@ public class PageController {
 	    }
 	
 	// Xem theo ID
+	@GetMapping("/page/view/id")
+	public String view(@RequestParam("id") String id, ModelMap model) {
+		for (Page page:list) {
+			if(page.getId().equals(id)) {
+				model.addAttribute("page",page);
+				return "page/viewpage";
+			}
+		}
+		return "redirect:/page/all";
+	}
 	// Xóa theo ID
 }
