@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -60,4 +61,10 @@ public class PostController {
 			return "redirect:/post/all";
 		}
 	
+		// Xóa theo ID
+		@GetMapping("/post/delete/{id}")
+	    public String deletePage(@PathVariable String id, ModelMap model) {
+	        list.removeIf(post -> post.getId().equals(id));
+	        return "redirect:/post/all";
+	    }
 }
