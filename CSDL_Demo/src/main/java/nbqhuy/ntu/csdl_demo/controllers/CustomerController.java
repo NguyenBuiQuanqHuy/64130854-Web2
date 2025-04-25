@@ -11,18 +11,18 @@ import org.springframework.web.bind.annotation.RestController;
 
 import nbqhuy.ntu.csdl_demo.entities.Customer;
 import nbqhuy.ntu.csdl_demo.respositories.CustomerRepository;
+import nbqhuy.ntu.csdl_demo.services.CustomerService;
 
 @Controller
-@RestController
 public class CustomerController {
 	@Autowired
-	CustomerRepository myCustomerRepository;
+	CustomerService customerService;
 	
 	@GetMapping("customer/all")
 	public String getAll(ModelMap m) {
 		List<Customer> dsKHs= new ArrayList<Customer>();
-		dsKHs = myCustomerRepository.findAll();
+		dsKHs = customerService.allKH();
 		m.addAttribute("dsKH",dsKHs);
-		return null;
+		return "dskh";
 	}
 }
